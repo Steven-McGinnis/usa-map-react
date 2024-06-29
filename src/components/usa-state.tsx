@@ -1,27 +1,32 @@
 import React from 'react';
 
 interface USAStateProps {
-  stateName: string;
   dimensions: string;
   state: string;
   fill: string;
-  onClickState: () => void;
+  stroke: string;
+  content?: string;
+  onClick: () => void;
 }
 
-const USAState: React.FC<USAStateProps> = ({ stateName, dimensions, state, fill, onClickState }) => {
+const USAState: React.FC<USAStateProps> = ({ 
+  dimensions, 
+  state, 
+  fill,
+  stroke,
+  content, 
+  onClick,
+}) => {
   return (
     <path
       d={dimensions}
       fill={fill}
+      stroke={stroke}
       data-name={state}
       className={`state ${state}`}
-      onClick={onClickState}
-      style={{
-        transition: 'fill 0.3s ease',
-        cursor: 'pointer',
-      }}
+      onClick={onClick}
     >
-      <title>{stateName}</title>
+      {content && <title>{content}</title>}
     </path>
   );
 };

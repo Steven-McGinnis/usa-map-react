@@ -1,2 +1,3 @@
 export * from './components/usa-map';
-export * from './data/states-info';
+export * from './data/state-abbreviations';
+export * from './data/state-names';

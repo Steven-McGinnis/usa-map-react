@@ -15,9 +15,8 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "webpack",
     "start": "npm run build && node index.js",
-    "test": "jest",
     "pack": "npm pack",
     "prepublish": "npm run build",
     "publish": "npm publish --access public"
@@ -49,5 +48,14 @@
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "typescript": "5.3.3",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
