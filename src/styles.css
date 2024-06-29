@@ -1,0 +1,18 @@
+.us-state-map path {
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+.us-state-map path:hover {
+  fill: #ffcc00;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  pointer-events: none;
+}

@@ -1,0 +1,53 @@
+{
+  "name": "@mirawision/usa-map-react",
+  "version": "1.0.0",
+  "description": "A highly customizable and interactive USA map component for React, allowing easy integration, state-based customization, and interactivity for data visualization and user interaction.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./states-info": {
+      "types": "./states-info.d.ts",
+      "default": "./states-info.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node index.js",
+    "test": "jest",
+    "pack": "npm pack",
+    "prepublish": "npm run build",
+    "publish": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiraWision/usa-map-react.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "usa",
+    "map",
+    "component",
+    "data visualization",
+    "user interaction",
+    "SVG",
+    "react component",
+    "USA map",
+    "geography",
+    "maps"
+  ],
+  "author": "Yelysei Lukin <yelysei277@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MiraWision/usa-map-react/issues"
+  },
+  "homepage": "https://github.com/MiraWision/usa-map-react#readme",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
