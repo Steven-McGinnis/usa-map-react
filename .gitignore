@@ -3,5 +3,4 @@ node_modules/
 /mirawision-usa-map-react-*.tgz
 /utils
 /*.d.ts
-/*.js
 /dist

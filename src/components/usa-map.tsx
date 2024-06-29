@@ -5,7 +5,7 @@ import { USAStateAbbreviation } from '../types';
 
 import { USAState } from './usa-state';
 
-import './styles.css';
+import '../styles.css';
 
 type OnStateClick = (state: USAStateAbbreviation) => void;
 

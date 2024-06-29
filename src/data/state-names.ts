@@ -1,4 +1,6 @@
-const StateNames = {
+import { USAStateAbbreviation } from '../types';
+
+const StateNames: Record<USAStateAbbreviation, string> = {
   AL: 'Alabama',
   AK: 'Alaska',
   AZ: 'Arizona',
