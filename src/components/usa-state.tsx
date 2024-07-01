@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 interface USAStateProps {
   dimensions: string;
@@ -23,7 +23,7 @@ const USAState: React.FC<USAStateProps> = ({
       fill={fill}
       stroke={stroke}
       data-name={state}
-      className={`state ${state}`}
+      className={`usa-state ${state.toLowerCase()}`}
       onClick={onClick}
     >
       {content && <title>{content}</title>}
@@ -31,4 +31,6 @@ const USAState: React.FC<USAStateProps> = ({
   );
 };
 
-export { USAState };
+const USAStateMemo = memo(USAState);
+
+export { USAStateMemo as USAState };

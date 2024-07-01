@@ -28,6 +28,7 @@ interface Props {
     [key in USAStateAbbreviation]?: State;
   };
   mapSettings?: MapSettings;
+  className?: string;
 }
 
 const USAMap: React.FC<Props> = ({
@@ -42,6 +43,7 @@ const USAMap: React.FC<Props> = ({
     height: 'fit-content',
     title: undefined,
   },
+  className = '',
 }) => {
   const { width, height, title } = mapSettings;
 
@@ -55,7 +57,7 @@ const USAMap: React.FC<Props> = ({
 
   return (
     <svg
-      className='us-state-map'
+      className={`usa-map ${className}`}
       xmlns='http://www.w3.org/2000/svg'
       width={width}
       height={height}
@@ -79,7 +81,7 @@ const USAMap: React.FC<Props> = ({
         
         <g className='DC state'>
           <circle
-            className='DC2'
+            className='dc2'
             onClick={() => onClick('DC')}
             data-name={'DC'}
             fill={customStates['DC']?.fill ?? defaultState.fill!}
