@@ -17,8 +17,8 @@ interface State {
 }
 
 interface MapSettings {
-  width?: number;
-  height?: number;
+  width?: string | number;
+  height?: string | number;
   title?: string;
 }
 
