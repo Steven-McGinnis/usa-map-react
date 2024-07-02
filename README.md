@@ -2,6 +2,8 @@
 
 This library provides a customizable SVG map of the United States, built using React. The map allows for individual state customization, including fill colors, stroke colors, and click handlers.
 
+[Demo and advanced Documentation can be found here!](https://mirawision.github.io/usa-map-react)
+
 ## Installation
 
 ```bash
