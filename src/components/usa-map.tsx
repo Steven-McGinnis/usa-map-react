@@ -31,7 +31,10 @@ interface Props {
 }
 
 const USAMap: React.FC<Props> = ({
-  defaultState = {},
+  defaultState = {
+    fill: '#d3d3d3',
+    stroke: '#a5a5a5', 
+  },
   customStates = {},
   mapSettings = {
     width: '100%',

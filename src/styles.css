@@ -1,7 +1,5 @@
 .usa-map path, .usa-map circle {
-  fill: #d3d3d3;
-  stroke: #a5a5a5; 
   cursor: pointer;
-  transition: fill 0.3s ease, stroke 0.3s ease;
+  transition: fill 0.6s, stroke 0.6s;
 }
 
