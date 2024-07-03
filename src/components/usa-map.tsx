@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StatePaths } from '../data/state-paths';
-import { USAStateAbbreviation } from '../types';
+import { USAStateAbbreviation } from '../types/index';
 
 import { USAState } from './usa-state';
 
@@ -12,7 +12,6 @@ type OnStateClick = (state: USAStateAbbreviation) => void;
 interface State {
   fill?: string;
   stroke?: string;
-  content?: (abbreviation: USAStateAbbreviation) => string;
   onClick?: OnStateClick;
 }
 
@@ -32,20 +31,15 @@ interface Props {
 }
 
 const USAMap: React.FC<Props> = ({
-  defaultState = {
-    fill: '#d3d3d3',
-    stroke: '#a5a5a5',
-    content: (abbreviation: USAStateAbbreviation) => abbreviation,
-  },
+  defaultState = {},
   customStates = {},
   mapSettings = {
     width: '100%',
     height: 'fit-content',
-    title: undefined,
   },
   className = '',
 }) => {
-  const { width, height, title } = mapSettings;
+  const { width, height } = mapSettings;
 
   const onClick = (stateAbbreviation: USAStateAbbreviation) => {
     if (customStates[stateAbbreviation]?.onClick) {
@@ -62,17 +56,13 @@ const USAMap: React.FC<Props> = ({
       width={width}
       height={height}
       viewBox='0 0 959 593'
-      style={{ cursor: 'pointer' }}
     >
-      {title && <title>{title}</title>}
-
       <g className='outlines'>
         {Object.entries(StatePaths).map(([abbreviation, path]) => (
           <USAState
             key={abbreviation}
             dimensions={path}
             state={abbreviation}
-            content={customStates[abbreviation]?.content?.(abbreviation) ?? defaultState.content?.(abbreviation)}
             fill={customStates[abbreviation]?.fill ?? defaultState.fill!}
             stroke={customStates[abbreviation]?.stroke ?? defaultState.stroke!}
             onClick={() => onClick(abbreviation)}

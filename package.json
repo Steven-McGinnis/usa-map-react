@@ -1,18 +1,18 @@
 {
   "name": "@mirawision/usa-map-react",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A highly customizable and interactive USA map component for React, allowing easy integration, state-based customization, and interactivity for data visualization and user interaction.",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
     "build": "webpack",
-    "start": "npm run build && node index.js",
+    "start": "npm run build && node dist/index.js",
     "pack": "npm pack",
     "prepublish": "npm run build",
     "publish": "npm publish --access public"
@@ -41,13 +41,12 @@
     "url": "https://github.com/MiraWision/usa-map-react/issues"
   },
   "homepage": "https://mirawision.github.io/usa-map-react",
-  "dependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
     "css-loader": "7.1.2",
     "style-loader": "4.0.0",
     "ts-loader": "^9.5.1",

@@ -1,4 +1,4 @@
-import { USAStateAbbreviation } from '../types';
+import { USAStateAbbreviation } from '../types/index';
 
 const StateNames: Record<USAStateAbbreviation, string> = {
   AL: 'Alabama',

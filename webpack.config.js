@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.ts',
@@ -6,6 +7,9 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
+    library: 'USAMap',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
@@ -13,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -22,5 +26,24 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'self': 'typeof self !== "undefined" ? self : this',
+    }),
+  ],
+  externals: {
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'React',
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'react-dom',
+      root: 'ReactDOM',
+    },
   },
 };

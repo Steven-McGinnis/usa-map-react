@@ -16,12 +16,11 @@ or
 yarn add @mirawision/usa-map-react
 ```
 
-## Usage
+## Basic Usage
 
 ```tsx
 import React from 'react';
-import { USAMap } from 'react-usa-map';
-import { USAStateAbbreviation } from 'react-usa-map/types';
+import { USAMap, USAStateAbbreviation } from '@mirawision/react-usa-map';
 
 const handleStateClick = (stateAbbreviation: USAStateAbbreviation) => {
   console.log(`You clicked on ${stateAbbreviation}`);
@@ -55,7 +54,6 @@ export default App;
 An optional prop to set the default style and behavior for all states. It can have the following properties:
 - `fill` (string): The default fill color for states.
 - `stroke` (string): The default stroke color for states.
-- `content` (function): A function that returns the content for each state.
 
 ### `customStates`
 An optional prop to customize individual states. It is an object where the key is the state abbreviation and the value is an object with the same properties as `defaultState`.
@@ -64,35 +62,6 @@ An optional prop to customize individual states. It is an object where the key i
 An optional prop to set the overall map settings. It can have the following properties:
 - `width` (number | string): The width of the SVG element.
 - `height` (number | string): The height of the SVG element.
-- `title` (string): The title of the SVG element.
-
-## Usage
-
-```tsx
-const customStates = {
-  NY: {
-    fill: 'yellow',
-    stroke: 'black',
-    onClick: (stateAbbreviation) => alert(`Clicked on ${stateAbbreviation}`),
-  },
-  FL: {
-    fill: 'orange',
-    onClick: (stateAbbreviation) => alert(`Clicked on ${stateAbbreviation}`),
-  },
-};
-
-const App = () => (
-  <div>
-    <h1>US Map</h1>
-    <USAMap
-      customStates={customStates}
-      mapSettings={{ width: '500px', height: '400px', title: 'Custom USA Map' }}
-    />
-  </div>
-);
-
-export default App;
-```
 
 ## Contributing
 
