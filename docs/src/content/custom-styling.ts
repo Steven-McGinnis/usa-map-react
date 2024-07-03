@@ -33,6 +33,7 @@ If \`customStates\` and \`defaultState\` props are not enough for your requireme
 \`\`\`tsx
 import React from 'react';
 import { USAMap } from '@mirawision/usa-map-react';
+
 import './styles.css';
 
 const App = () => (

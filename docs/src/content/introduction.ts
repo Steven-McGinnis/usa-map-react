@@ -34,6 +34,7 @@ import { USAMap } from '@mirawision/usa-map-react';
 const App = () => (
   <div>
     <h1>USA Map</h1>
+    
     <USAMap />
   </div>
 );
