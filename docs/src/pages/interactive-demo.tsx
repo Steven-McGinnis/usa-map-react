@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from 'react';
-import { USAMap, StateNames, StateAbbreviations, USAStateAbbreviation } from '@mirawision/usa-map-react';
+import { styled } from 'styled-components';
+import { USAMap, StateAbbreviations, USAStateAbbreviation } from '@mirawision/usa-map-react';
 
 import { content1, content2, content3 } from '../content/interactive-demo';
 
 import Markdown from '../components/common/markdown';
-import { styled } from 'styled-components';
 
 interface Props {
 }
@@ -71,6 +71,10 @@ const ExampleButton = styled.button<{ selected: boolean }>`
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    padding: 0.25rem 0.5rem;
+  }
 `;
 
 const Description = styled.p`
@@ -108,7 +112,7 @@ const ExampleVisualizeData: React.FC = ({}) => {
         customStates={mapSettings}
       />
 
-      <ExampleButton selected onClick={() => setRefreshIndex(refreshIndex + 1)}>Refresh</ExampleButton>
+      <ExampleButton selected={false} onClick={() => setRefreshIndex(refreshIndex + 1)}>Refresh</ExampleButton>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import { CustomStylingPage } from './pages/custom-styling';
 import { AdditionalDataPage } from './pages/additional-data';
 
 const App: React.FC = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
