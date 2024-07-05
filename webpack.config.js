@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     library: 'USAMap',
     libraryTarget: 'umd',
+    globalObject: 'this',
     umdNamedDefine: true,
   },
   resolve: {
