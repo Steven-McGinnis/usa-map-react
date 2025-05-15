@@ -1,6 +1,6 @@
 {
   "name": "@mirawision/usa-map-react",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "A highly customizable and interactive USA map component for React, allowing easy integration, state-based customization, and interactivity for data visualization and user interaction.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
