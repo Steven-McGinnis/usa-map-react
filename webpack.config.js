@@ -1,17 +1,9 @@
+// webpack.config.js
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = {
+const base = {
   entry: './src/index.ts',
-  mode: 'production',
-  output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: 'USAMap',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-    umdNamedDefine: true,
-  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -28,23 +20,40 @@ module.exports = {
       },
     ],
   },
+  externals: ['react', 'react-dom'],
+  optimization: {
+    concatenateModules: false,
+  },
   plugins: [
     new webpack.DefinePlugin({
-      'self': 'typeof self !== "undefined" ? self : this',
+      self: 'typeof self !== "undefined" ? self : this',
     }),
   ],
-  externals: {
-    react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-      root: 'React',
-    },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-      root: 'ReactDOM',
+};
+
+module.exports = [
+  // 1) CommonJS build
+  {
+    ...base,
+    mode: 'production',
+    externalsType: 'commonjs2',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index.cjs.js',
+      library: { type: 'commonjs2' },
     },
   },
-};
+
+  // 2) ESModule build
+  {
+    ...base,
+    mode: 'production',
+    externalsType: 'module',
+    experiments: { outputModule: true },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'index.esm.js',
+      library: { type: 'module' },
+    },
+  },
+];
