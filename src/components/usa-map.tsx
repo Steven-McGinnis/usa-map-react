@@ -52,10 +52,10 @@ interface Props {
   /** Additional CSS class name for the map SVG */
   className?: string;
   /**
-   * If true, hides the DC circle on the map
-   * @default false
+   * Array of state abbreviations to hide from the map
+   * @default []
    */
-  hideDC?: boolean;
+  hiddenStates?: USAStateAbbreviation[];
 }
 
 /**
@@ -74,6 +74,9 @@ interface Props {
  *   CA: { fill: 'blue', onClick: () => console.log('California clicked!') },
  *   NY: { fill: 'red', onClick: () => console.log('New York clicked!') }
  * }} />
+ * 
+ * // Hide specific states from the map
+ * <USAMap hiddenStates={['AK', 'HI', 'DC']} />
  * ```
  */
 const USAMap: React.FC<Props> = ({
@@ -87,7 +90,7 @@ const USAMap: React.FC<Props> = ({
     height: 'fit-content',
   },
   className = '',
-  hideDC = false,
+  hiddenStates = [],
 }) => {
   const { width, height } = mapSettings;
 
@@ -108,18 +111,23 @@ const USAMap: React.FC<Props> = ({
       viewBox='0 0 959 593'
     >
       <g className='outlines'>
-        {Object.entries(StatePaths).map(([abbreviation, path]) => (
-          <USAState
-            key={abbreviation}
-            dimensions={path}
-            state={abbreviation}
-            fill={customStates[abbreviation]?.fill ?? defaultState.fill!}
-            stroke={customStates[abbreviation]?.stroke ?? defaultState.stroke!}
-            onClick={() => onClick(abbreviation)}
-          /> 
-        ))}
+        {Object.entries(StatePaths).map(([abbreviation, path]) => {
+          if (hiddenStates.includes(abbreviation as USAStateAbbreviation)) {
+            return null;
+          }
+          return (
+            <USAState
+              key={abbreviation}
+              dimensions={path}
+              state={abbreviation}
+              fill={customStates[abbreviation]?.fill ?? defaultState.fill!}
+              stroke={customStates[abbreviation]?.stroke ?? defaultState.stroke!}
+              onClick={() => onClick(abbreviation)}
+            />
+          );
+        })}
         
-        {!hideDC && (
+        {!hiddenStates.includes('DC') && (
           <g className='DC state'>
             <circle
               className='dc2'
